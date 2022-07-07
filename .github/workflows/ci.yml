@@ -22,6 +22,8 @@ jobs:
       - name: Get time start workflow
         run: echo "::set-output name=JOB_START_TIME::$(date +%s)"
         id: time_start
+      - run: echo "${{ github.actor }}"
+      - run: echo "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Use Node.js
 #        if: ${{ github.ref }} == 'develop'
@@ -74,8 +76,10 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+#          username: ${{ github.actor }}
+#          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{secrets.MAIL_USERNAME}}
+          passworf: ${{secrets.MAIL_PASSWORD}}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
