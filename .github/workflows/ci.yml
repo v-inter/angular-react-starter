@@ -3,7 +3,7 @@ name: CI
 on: push 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }} ${{ GITHUB_SHA::7 }}
+  IMAGE_NAME: ${{ github.repository }} ${{ GITHUB_SHA }}
 
 jobs:
   ### Test
