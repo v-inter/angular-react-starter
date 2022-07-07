@@ -79,7 +79,7 @@ jobs:
 #          username: ${{ github.actor }}
 #          password: ${{ secrets.GITHUB_TOKEN }}
           username: ${{secrets.DOKERHUB_USERNAME}}
-          passworf: ${{secrets.DOKERHUB_ACCESS_KEY}}
+          password: ${{secrets.DOKERHUB_ACCESS_KEY}}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -118,8 +118,8 @@ jobs:
       - name: Send mail
         uses: ./.github/actions/send-email
         with:
-          username: ${{secrets.MAIL_USERNAME}} # Optional (recommended): mail server username
-          password: ${{secrets.MAIL_PASSWORD}} # Optional (recommended) mail server password
-          to: ${{secrets.MAIL_ADDRESS}} # Required recipients' addresses:
-          body: ${{env.message_body}} # Optional plain body:
-          reply_to: ${{secrets.MAIL_USERNAME}} # Optional recipient of the email response
+          username: ${{secrets.MAIL_USERNAME}} 
+          password: ${{secrets.MAIL_PASSWORD}} 
+          to: ${{secrets.MAIL_ADDRESS}} 
+          body: ${{env.message_body}} 
+          reply_to: ${{secrets.MAIL_USERNAME}} 
