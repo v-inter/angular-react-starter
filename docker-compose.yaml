@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  angular:
+    image: "ghcr.io/v-inter/angular-react-starter:master"
+    container_name: angular-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
